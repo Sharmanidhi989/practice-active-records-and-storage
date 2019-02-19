@@ -1,7 +1,10 @@
+
+<a href="#" onclick="paintIt(this, '#990000')">Paint it red</a>
+
 <%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <div id='error_explanation'>
+      <h2><%= pluralize(user.errors.count, 'error') %> prohibited this user from being saved:</h2>
 
       <ul>
       <% user.errors.full_messages.each do |message| %>
@@ -10,27 +13,31 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+  <div class='foo'>
+  <div class='field' class='form-group'>
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email , class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class='field'>
     <%= form.label :password %>
-    <%= form.password_field :password %>
+    <%= form.password_field :password ,class: 'form-control'%>
   </div>
 
-  <div class="field">
+  <div class='field'>
     <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
+    <%= form.password_field :password_confirmation, class: 'form-control' %>
   </div>
-
-  <div class="actions">
+    <div class='field'>
+    <%= form.label :avatar %>
+    <%= form.file_field :avatar %>
+  </div
+  <div class='actions'>
   <% if user.persisted? %>
-    <%= form.submit "update user" %>
+    <%= form.submit 'update user', class: 'btn btn-primary '%>
     <% else %>
-    <%= form.submit "join me" %>
+    <%= form.submit 'join me', class: 'btn btn-primary '%>
     <% end %>
   </div>
 <% end %>
+</div>

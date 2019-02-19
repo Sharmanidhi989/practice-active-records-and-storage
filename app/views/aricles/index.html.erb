@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<h1>Aricles</h1>
+   <h3> Title
+      Description
+</h3>     
+
+<%= check_box_tag(:pet_dog) %>
+<%= label_tag(:pet_dog, "I own a dog") %>
+<%= check_box_tag(:pet_cat) %>
+<%= label_tag(:pet_cat, "I own a cat") %> 
+   <div class="container">
+    <div class="row">
+    <% @aricles.each do |aricle| %>
+        <div class="col-lg-4">
+        <div class="card bg-dark text-white">
+            <%=image_tag('https://hdbackgroundspot.com//storage/upload/black-abstract-background/black-abstract-background-7.jpg', class: 'card-img')%>
+                <div class="card-img-overlay">
+                <%= aricle.title %>
+                <br>
+                <%= aricle.description %>
+                <br>
+                <%= link_to 'Show', aricle %>
+                <%= link_to 'Edit', edit_aricle_path(aricle) %>
+                <%= link_to 'Destroy', aricle, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <br>
+                </div>
+            </div>
+        </div>
+                 
+    <% end %>
+    </div>
+</div>  
+
+<%= link_to 'New Aricle', new_aricle_path %>

@@ -2,13 +2,12 @@
   Logged in as <%= current_user.email %>.
   <%= link_to 'Log Out', logout_path %>
 <% else %>
-  <%= link_to 'Sign Up', signup_path %> or 
-  <%= link_to 'Log In', login_path %>
+  <div class = 'text-white'>
+    <br>
+    <%= link_to 'Sign Up', signup_path, class: 'btn btn-primary ' %> or 
+    <%= link_to 'Log In', login_path, class: 'btn btn-primary ' %>
+  </div>
 <% end %>
-
-
-
-
-<p id=”notice”><%= notice %></p>
+<p id=”notice” class="alert alert-success"><%= notice %></p>
 <h1>Example</h1>
 <p>Lorem ipsum …</p>

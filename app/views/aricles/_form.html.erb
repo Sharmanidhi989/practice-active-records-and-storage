@@ -1,0 +1,27 @@
+<%= form_with(model: aricle, local: true) do |form| %>
+  <% if aricle.errors.any? %>
+    <div id="error_explanation alert alert-success">
+      <h2><%= pluralize(aricle.errors.count, "error") %> prohibited this aricle from being saved:</h2>
+
+      <ul>
+      <% aricle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+  
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
